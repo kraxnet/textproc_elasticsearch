@@ -1,6 +1,6 @@
 etc/elasticsearch/elasticsearch.yml
 etc/elasticsearch/logging.yml
-%%JAVAJARDIR%%/elasticsearch-0.15.2.jar
+%%JAVAJARDIR%%/elasticsearch-0.16.0-SNAPSHOT.jar
 %%JAVAJARDIR%%/jline-0.9.94.jar
 %%JAVAJARDIR%%/jna-3.2.7.jar
 %%JAVAJARDIR%%/log4j-1.2.15.jar
