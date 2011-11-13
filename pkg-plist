@@ -1,0 +1,28 @@
+etc/elasticsearch/elasticsearch.yml
+etc/elasticsearch/logging.yml
+%%JAVAJARDIR%%/elasticsearch-0.15.2.jar
+%%JAVAJARDIR%%/jline-0.9.94.jar
+%%JAVAJARDIR%%/jna-3.2.7.jar
+%%JAVAJARDIR%%/log4j-1.2.15.jar
+%%JAVAJARDIR%%/lucene-analyzers-3.0.3.jar
+%%JAVAJARDIR%%/lucene-core-3.0.3.jar
+%%JAVAJARDIR%%/lucene-fast-vector-highlighter-3.0.3.jar
+%%JAVAJARDIR%%/lucene-highlighter-3.0.3.jar
+%%JAVAJARDIR%%/lucene-memory-3.0.3.jar
+%%JAVAJARDIR%%/lucene-queries-3.0.3.jar
+%%JAVAJARDIR%%/lucene-snowball-3.0.3.jar
+%%JAVAJARDIR%%/sigar/libsigar-amd64-freebsd-6.so
+%%JAVAJARDIR%%/sigar/libsigar-amd64-linux.so
+%%JAVAJARDIR%%/sigar/libsigar-amd64-solaris.so
+%%JAVAJARDIR%%/sigar/libsigar-ia64-linux.so
+%%JAVAJARDIR%%/sigar/libsigar-sparc-solaris.so
+%%JAVAJARDIR%%/sigar/libsigar-sparc64-solaris.so
+%%JAVAJARDIR%%/sigar/libsigar-universal-macosx.dylib
+%%JAVAJARDIR%%/sigar/libsigar-universal64-macosx.dylib
+%%JAVAJARDIR%%/sigar/libsigar-x86-freebsd-5.so
+%%JAVAJARDIR%%/sigar/libsigar-x86-freebsd-6.so
+%%JAVAJARDIR%%/sigar/libsigar-x86-linux.so
+%%JAVAJARDIR%%/sigar/libsigar-x86-solaris.so
+%%JAVAJARDIR%%/sigar/sigar-1.6.4.jar
+@dirrm %%JAVAJARDIR%%/sigar
+@dirrm etc/elasticsearch

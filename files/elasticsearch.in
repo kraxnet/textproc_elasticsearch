@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# $FreeBSD$
+#
+# PROVIDE: elasticsearch
+# REQUIRE: LOGIN
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# elasticsearch_enable (bool):   Set to NO by default.
+#               Set it to YES to enable doormand.
+# elasticsearch_min_mem (size):   Set to 256m by default.
+# elasticsearch_max_mem (size):   Set to 1g by default.
+#
+
+. /etc/rc.subr
+
+name="elasticsearch"
+rcvar=`set_rcvar`
+
+load_rc_config "${name}"
+
+: ${elasticsearch_enable="NO"}
+: ${elasticsearch_min_mem="256m"}
+: ${elasticsearch_max_mem="1g"}
+: ${elasticsearch_user="%%ELASTICSEARCH_USER%%"}
+: ${elasticsearch_group="%%ELASTICSEARCH_GROUP%%"}
+: ${elasticsearch_java_home="%%JAVA_HOME%%"}
+: ${elasticsearch_confdir="%%ELASTICSEARCH_CONFDIR%%"}
+: ${elasticsearch_logdir="%%ELASTICSEARCH_LOGDIR%%"}
+: ${elasticsearch_datadir="%%ELASTICSEARCH_DATADIR%%"}
+: ${elasticsearch_workdir="%%ELASTICSEARCH_WORKDIR%%"}
+: ${elasticsearch_args="-Des.path.conf=${elasticsearch_confdir} -Des.path.logs=${elasticsearch_logdir} -Des.path.data=${elasticsearch_datadir} -Des.path.work=${elasticsearch_workdir}"}
+
+classpath="%%JAVAJARDIR%%/elasticsearch-0.15.2.jar:%%JAVAJARDIR%%/jline-0.9.94.jar:%%JAVAJARDIR%%/jna-3.2.7.jar:%%JAVAJARDIR%%/log4j-1.2.15.jar:%%JAVAJARDIR%%/lucene-analyzers-3.0.3.jar:%%JAVAJARDIR%%/lucene-core-3.0.3.jar:%%JAVAJARDIR%%/lucene-fast-vector-highlighter-3.0.3.jar:%%JAVAJARDIR%%/lucene-highlighter-3.0.3.jar:%%JAVAJARDIR%%/lucene-memory-3.0.3.jar:%%JAVAJARDIR%%/lucene-queries-3.0.3.jar:%%JAVAJARDIR%%/lucene-snowball-3.0.3.jar:%%JAVAJARDIR%%/sigar/libsigar-amd64-freebsd-6.so:%%JAVAJARDIR%%/sigar/libsigar-amd64-linux.so:%%JAVAJARDIR%%/sigar/libsigar-amd64-solaris.so:%%JAVAJARDIR%%/sigar/libsigar-ia64-linux.so:%%JAVAJARDIR%%/sigar/libsigar-sparc-solaris.so:%%JAVAJARDIR%%/sigar/libsigar-sparc64-solaris.so:%%JAVAJARDIR%%/sigar/libsigar-universal-macosx.dylib:%%JAVAJARDIR%%/sigar/libsigar-universal64-macosx.dylib:%%JAVAJARDIR%%/sigar/libsigar-x86-freebsd-5.so:%%JAVAJARDIR%%/sigar/libsigar-x86-freebsd-6.so:%%JAVAJARDIR%%/sigar/libsigar-x86-linux.so:%%JAVAJARDIR%%/sigar/libsigar-x86-solaris.so:%%JAVAJARDIR%%/sigar/sigar-1.6.4.jar"
+
+pidfile="/var/run/${name}.pid"
+command="/usr/sbin/daemon"
+java_cmd="${elasticsearch_java_home}/bin/java"
+procname="${java_cmd}"
+command_args="-p ${pidfile} ${java_cmd} -cp ${classpath} ${elasticsearch_args} org.elasticsearch.bootstrap.Bootstrap"
+required_files="${java_cmd}"
+
+start_precmd="elasticsearch_precmd"
+
+elasticsearch_precmd() {
+        touch ${pidfile}
+        chown ${elasticsearch_user}:${elasticsearch_group} ${pidfile}
+}
+
+run_rc_command "$1"
+
