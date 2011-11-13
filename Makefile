@@ -6,12 +6,11 @@
 #
 
 PORTNAME=	elasticsearch
-PORTVERSION=	0.16.0
+PORTVERSION=	0.18.2
 CATEGORIES=	textproc java
 MASTER_SITES=	http://github.com/downloads/elasticsearch/elasticsearch/
 MAINTAINER=	jiri.kubicek@kraxnet.cz
 COMMENT=	Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Lucene.
-EXTRACT_SUFX=   -SNAPSHOT.tar.gz
 
 FETCH_ARGS=    -pRr    # default '-ApRr' prevents 302 redirects by github
 
