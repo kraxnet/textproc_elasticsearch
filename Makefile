@@ -9,8 +9,9 @@ PORTNAME=	elasticsearch
 PORTVERSION=	0.19.4
 CATEGORIES=	textproc java
 MASTER_SITES=	http://github.com/downloads/elasticsearch/elasticsearch/
+
 MAINTAINER=	jiri.kubicek@kraxnet.cz
-COMMENT=	Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Lucene.
+COMMENT=	Open Source (Apache 2), Distributed, RESTful, Search Engine built on top of Lucene
 
 FETCH_ARGS=    -pRr    # default '-ApRr' prevents 302 redirects by github
 
@@ -24,8 +25,8 @@ USE_JAVA=	yes
 ELASTICSEARCH_USER?=    elasticsearch
 ELASTICSEARCH_GROUP?=	elasticsearch
 ELASTICSEARCH_VARDIR?=  /var
-ELASTICSEARCH_CONFDIR?= ${PREFIX}/etc/elasticsearch 
-ELASTICSEARCH_LOGDIR?=  ${ELASTICSEARCH_VARDIR}/log/elasticsearch 
+ELASTICSEARCH_CONFDIR?= ${PREFIX}/etc/elasticsearch
+ELASTICSEARCH_LOGDIR?=  ${ELASTICSEARCH_VARDIR}/log/elasticsearch
 ELASTICSEARCH_DATADIR?= ${ELASTICSEARCH_VARDIR}/db/elasticsearch
 ELASTICSEARCH_WORKDIR?= ${ELASTICSEARCH_VARDIR}/db/elasticsearch/work
 
