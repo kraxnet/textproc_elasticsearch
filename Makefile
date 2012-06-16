@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	elasticsearch
-PORTVERSION=	0.18.2
+PORTVERSION=	0.19.4
 CATEGORIES=	textproc java
 MASTER_SITES=	http://github.com/downloads/elasticsearch/elasticsearch/
 MAINTAINER=	jiri.kubicek@kraxnet.cz
